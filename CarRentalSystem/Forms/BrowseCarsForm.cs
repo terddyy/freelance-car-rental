@@ -25,7 +25,6 @@ namespace CarRentalSystem.Forms
             this.Size = new Size(1400, 900);
             this.StartPosition = FormStartPosition.CenterScreen;
             this.BackColor = Color.FromArgb(248, 249, 250);
-            this.WindowState = FormWindowState.Maximized;
             
             InitializeComponents();
             LoadFilters();
