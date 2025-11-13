@@ -183,6 +183,20 @@ cd freelance-car-rental
 - **Right-click** form file → **View Code**
 - Or select the file and press `F7`
 
+**Switching Between Code and Designer:**
+- You can freely switch between editing UI with code and using the visual designer
+- If you edited the `.Designer.cs` file manually:
+  - Simply open **View Designer** - your code changes will appear visually
+  - The designer reads the code and displays the controls
+  - You can continue editing visually, and the designer updates the code automatically
+- **Important**: Always edit UI code in the `.Designer.cs` file, not the main `.cs` file
+- If the designer shows errors after manual code edits, rebuild the solution (`Ctrl + Shift + B`)
+
+**Best Practice:**
+- Use the **Designer** for adding/positioning controls (easier and safer)
+- Use **Code** for complex logic, dynamic controls, or bulk property changes
+- Both approaches work together seamlessly
+
 #### 8. Managing Project Settings
 
 **Set Startup Project:**
@@ -349,6 +363,113 @@ Think of this system like running a physical car rental shop, but digitally:
 ## How to Edit the UI with Visual Studio (Drag & Drop)
 
 This application uses **Windows Forms**, which has a visual designer in Visual Studio that lets you edit the interface by dragging and dropping controls.
+
+### Step-by-Step: Opening the Visual Designer
+
+**IMPORTANT**: This only works in **Visual Studio 2022** (NOT VS Code). VS Code does not have a WinForms designer.
+
+#### Step 1: Open the Project in Visual Studio
+1. Navigate to the `freelance-car-rental` folder
+2. Double-click `CarRentalSystem.sln` - this opens Visual Studio 2022
+3. Wait for the solution to fully load
+
+#### Step 2: Find Solution Explorer
+1. Look for the **Solution Explorer** panel (usually on the right side of Visual Studio)
+2. If you don't see it, go to menu: **View → Solution Explorer** (or press `Ctrl + Alt + L`)
+3. You should see a tree with folders like `Forms`, `Models`, `Data`, etc.
+
+#### Step 3: Navigate to Forms Folder
+1. In Solution Explorer, find the **Forms** folder (it has a folder icon 📁)
+2. Click the small arrow (▶) next to `Forms` to expand it
+3. You'll see files like:
+   - `MainForm.cs`
+   - `VehicleManagementControl.cs`
+   - `CustomerManagementControl.cs`
+   - etc.
+
+#### Step 4: Open the Designer (THE KEY STEP!)
+1. **Right-click** on `MainForm.cs` (or any other form you want to edit)
+2. From the context menu, select **"View Designer"**
+   - Alternatively: Click the file once to select it, then press `Shift + F7`
+3. The **visual designer will open** in the main area - you'll see the form layout visually!
+
+**Troubleshooting: Can't See "View Designer"?**
+
+If you don't see "View Designer" in the right-click menu, try these solutions:
+
+**Solution 1: Check the File Type**
+- Make sure you're right-clicking on a **form file** (e.g., `MainForm.cs`, not `Program.cs`)
+- Files that have designers typically have a corresponding `.Designer.cs` file
+- Look for files in the `Forms/` folder
+
+**Solution 2: Double-Click Instead**
+- **Double-click** `MainForm.cs` directly
+- If it's a form, Visual Studio should open the Designer automatically
+- If it opens code instead, the file might not be a form
+
+**Solution 3: Use the Keyboard Shortcut**
+- Click once on `MainForm.cs` to select it
+- Press `Shift + F7` (this forces the designer to open)
+- If nothing happens, the file doesn't have a designer
+
+**Solution 4: Check Visual Studio Workload**
+- Go to **Tools → Get Tools and Features**
+- Ensure **.NET desktop development** workload is installed
+- This includes WinForms designer components
+- If not installed, check the box and click **Modify** to install it
+
+**Solution 5: Look at Solution Explorer Icons**
+- Files with designers show a special icon:
+  - `MainForm.cs` should have a small arrow (▶) next to it
+  - Click the arrow to expand and see `MainForm.Designer.cs` and `MainForm.resx`
+- If you see these files, the designer exists
+
+**Solution 6: Alternative Menu Path**
+- Select `MainForm.cs` in Solution Explorer
+- Go to top menu: **View → Designer** (or `Shift + F7`)
+
+**Still Not Working?**
+- You might be using **Visual Studio Code** instead of **Visual Studio 2022**
+  - VS Code does NOT have a WinForms designer
+  - You must use Visual Studio 2022 (Community/Professional/Enterprise)
+  - Download Visual Studio 2022: https://visualstudio.microsoft.com/downloads/
+
+#### Step 5: Start Drag & Drop Editing
+1. If you don't see the **Toolbox**, press `Ctrl + Alt + X` or go to **View → Toolbox**
+2. The Toolbox appears on the left side with controls like:
+   - Button
+   - Label
+   - TextBox
+   - DataGridView
+   - Panel
+   - etc.
+3. **Click and hold** any control in the Toolbox
+4. **Drag** it onto the form surface
+5. **Drop** it where you want it
+6. The control appears on your form!
+
+### Visual Guide: What You Should See
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│ Visual Studio 2022                                          │
+├─────────────┬───────────────────────────┬──────────────────┤
+│  TOOLBOX    │    DESIGNER SURFACE       │  SOLUTION        │
+│  (Left)     │    (Center - Your Form)   │  EXPLORER        │
+│             │                            │  (Right)         │
+│ ▼ Common    │  ┌──────────────────────┐ │                  │
+│   Button    │  │                      │ │ ▶ CarRental...   │
+│   Label     │  │   Your Form Here     │ │   ▼ Forms        │
+│   TextBox   │  │   [Drag controls]    │ │     MainForm.cs  │
+│   Panel     │  │   [here to design]   │ │     Vehicle...   │
+│   ...       │  │                      │ │   ▶ Models       │
+│             │  └──────────────────────┘ │   ▶ Data         │
+│             │                            │                  │
+├─────────────┴────────────────────────────┴──────────────────┤
+│  PROPERTIES WINDOW (Bottom Right)                           │
+│  [Shows properties of selected control]                     │
+└─────────────────────────────────────────────────────────────┘
+```
 
 ### Opening the Visual Designer
 
