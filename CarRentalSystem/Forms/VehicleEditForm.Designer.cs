@@ -402,6 +402,8 @@ namespace CarRentalSystem.Forms
             this.Controls.Add(this.lblModel);
             this.Controls.Add(this.txtMake);
             this.Controls.Add(this.lblMake);
+            this.Controls.Add(this.pictureBoxVehicle);
+            this.Controls.Add(this.btnBrowseImage);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -410,6 +412,7 @@ namespace CarRentalSystem.Forms
             this.Text = "Vehicle";
             ((System.ComponentModel.ISupportInitialize)(this.numDailyRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSeatCapacity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxVehicle)).EndInit();
             this.ResumeLayout(false);
         }
     }

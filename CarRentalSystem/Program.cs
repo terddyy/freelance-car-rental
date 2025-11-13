@@ -15,15 +15,8 @@ namespace CarRentalSystem
             // Initialize database
             _ = Data.DatabaseManager.Instance;
             
-            // Show landing page first
-            using (var landingPage = new Forms.LandingPageForm())
-            {
-                if (landingPage.ShowDialog() == DialogResult.OK)
-                {
-                    // User clicked "Start Now" - open main application
-                    Application.Run(new Forms.MainForm());
-                }
-            }
+            // Show customer-facing browse cars page
+            Application.Run(new Forms.BrowseCarsForm());
         }
     }
 }
