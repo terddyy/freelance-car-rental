@@ -13,6 +13,17 @@ namespace CarRentalSystem.Forms
         {
             InitializeComponent();
             LoadLandingPageImage();
+            CenterButton();
+            
+            // Center button on form resize
+            this.Resize += (s, e) => CenterButton();
+        }
+        
+        private void CenterButton()
+        {
+            // Center the button horizontally in the button panel
+            startNowButton.Left = (buttonPanel.Width - startNowButton.Width) / 2;
+            startNowButton.Top = (buttonPanel.Height - startNowButton.Height) / 2;
         }
 
         private void LoadLandingPageImage()

@@ -45,12 +45,25 @@ namespace CarRentalSystem.Forms
             
             pnlVehicleCards = new FlowLayoutPanel 
             { 
-                Dock = DockStyle.Fill,
+                Location = new Point(0, 0),
+                Width = vehicleContainerPanel.Width - 80,
+                AutoSize = true,
+                AutoSizeMode = AutoSizeMode.GrowAndShrink,
                 FlowDirection = FlowDirection.LeftToRight,
                 WrapContents = true,
                 Padding = new Padding(10),
                 BackColor = Color.Transparent,
-                AutoScroll = false
+                MinimumSize = new Size(vehicleContainerPanel.Width - 80, 100),
+                MaximumSize = new Size(vehicleContainerPanel.Width - 80, 0)
+            };
+            
+            // Update FlowLayoutPanel width when container resizes
+            vehicleContainerPanel.Resize += (s, e) =>
+            {
+                int width = vehicleContainerPanel.ClientSize.Width - 80;
+                pnlVehicleCards.Width = width;
+                pnlVehicleCards.MinimumSize = new Size(width, 100);
+                pnlVehicleCards.MaximumSize = new Size(width, 0);
             };
             
             vehicleContainerPanel.Controls.Add(pnlVehicleCards);
