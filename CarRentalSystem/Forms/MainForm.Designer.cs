@@ -5,6 +5,7 @@ namespace CarRentalSystem.Forms
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.Panel mainPanel;
+    private System.Windows.Forms.Button dbInfoButton;
         private System.Windows.Forms.ToolStripMenuItem homeMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vehiclesMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customersMenuItem;
@@ -107,11 +108,21 @@ namespace CarRentalSystem.Forms
             this.mainPanel.Size = new System.Drawing.Size(1400, 755);
             this.mainPanel.TabIndex = 1;
             this.mainPanel.BackColor = System.Drawing.Color.FromArgb(248, 249, 250);
+
+            // dbInfoButton
+            this.dbInfoButton = new System.Windows.Forms.Button();
+            this.dbInfoButton.Name = "dbInfoButton";
+            this.dbInfoButton.Text = "DB Info";
+            this.dbInfoButton.Size = new System.Drawing.Size(120, 30);
+            this.dbInfoButton.Location = new System.Drawing.Point(1220, 10);
+            this.dbInfoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dbInfoButton.Click += new System.EventHandler(this.DbInfoButton_Click);
             
             // MainForm
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 800);
+            this.mainPanel.Controls.Add(this.dbInfoButton);
             this.Controls.Add(this.mainPanel);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;

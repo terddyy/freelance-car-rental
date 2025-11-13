@@ -1,3 +1,5 @@
+using System.IO;
+
 namespace CarRentalSystem.Forms
 {
     /// <summary>
@@ -150,6 +152,26 @@ namespace CarRentalSystem.Forms
             mainPanel.Controls.Clear();
             control.Dock = DockStyle.Fill;
             mainPanel.Controls.Add(control);
+        }
+
+        private void DbInfoButton_Click(object? sender, EventArgs e)
+        {
+            try
+            {
+                string appDataPath = Path.Combine(
+                    Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                    "CarRentalSystem");
+
+                string dbPath = Path.Combine(appDataPath, "CarRental.db");
+                bool exists = File.Exists(dbPath);
+
+                string message = $"Database path: {dbPath}\nExists: {exists}";
+                MessageBox.Show(message, "Database Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error checking database: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
